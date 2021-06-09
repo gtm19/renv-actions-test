@@ -6,7 +6,7 @@ on:
       - main
       - master
     paths:
-      - ${{ env.APP_PATH }}/**
+      - 'packages/app.one/**'
 
 env:
   APP_PATH: 'packages/app.one/'
