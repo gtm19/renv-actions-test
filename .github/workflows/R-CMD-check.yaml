@@ -42,7 +42,7 @@ jobs:
         with:
           filters: |
             path:
-              - ${{ matrix.path }}
+              - ${{ matrix.path }}/**/*
 
       - uses: r-lib/actions/setup-r@v1
         if: steps.filter.outputs.path == 'true'
