@@ -6,12 +6,12 @@ on:
       - main
       - master
     paths:
-      - 'packages/app.one/**'
+      - 'packages/app.two/**'
 
 env:
-  APP_PATH: 'packages/app.one/'
+  APP_PATH: 'packages/app.two/'
 
-name: app.one R-CMD-check
+name: app.two R-CMD-check
 
 jobs:
   R-CMD-check:
