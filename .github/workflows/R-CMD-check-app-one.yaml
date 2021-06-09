@@ -48,7 +48,7 @@ jobs:
         id: check_renv
         uses: andstor/file-existence-action@v1
         with:
-          files: "renv.lock, renv"
+          files: "renv.lock, renv/"
 
       - name: Query dependencies (no renv)
         if: steps.check_renv.outputs.files_exists == 'false'
