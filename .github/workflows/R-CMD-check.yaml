@@ -51,6 +51,10 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
         if: steps.filter.outputs.path == 'true'
 
+      - name: Ensure `.github' directory exists
+        if: steps.filter.outputs.path == 'true'
+        run: mkdir .github
+
       - name: Check for renv breadcrumbs
         if: steps.filter.outputs.path == 'true'
         id: check_renv
