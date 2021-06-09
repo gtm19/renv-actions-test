@@ -11,7 +11,7 @@ on:
 env:
   APP_PATH: 'packages/app.one/'
 
-name: ${{ APP_PATH }} R-CMD-check
+name: app.one R-CMD-check
 
 jobs:
   R-CMD-check:
