@@ -18,7 +18,7 @@ specific subdirectories (using [dorney/paths-filter](https://github.com/dorny/pa
 which will ensure the Action only runs when files in these specific 
 subdirectories are modified
 
-See the PRs of this repo for examples:
+See the [PRs of this repo](https://github.com/gtm19/renv-actions-test/pulls?q=is%3Apr+is%3Amerged+) for examples:
 
 * [#1](https://github.com/gtm19/renv-actions-test/pull/1) does not use `renv`
 * [#3](https://github.com/gtm19/renv-actions-test/pull/3) does use `renv`
