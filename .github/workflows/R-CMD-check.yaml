@@ -62,9 +62,9 @@ jobs:
         with:
           files: "${{ matrix.pkgs.dir }}/renv.lock, ${{ matrix.pkgs.dir }}/renv/activate.R"
 
-      - name: Install remotes
+      - name: Install remotes and rcmdcheck
         if: steps.filter.outputs.path == 'true'
-        run: install.packages('remotes')
+        run: install.packages(c('remotes', 'rcmdcheck'))
         shell: Rscript {0}
 
       - name: Install system dependencies
@@ -145,7 +145,6 @@ jobs:
           steps.filter.outputs.path == 'true' &&
           steps.check_renv.outputs.files_exists == 'false'
         run: |
-          install.packages(c("rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
