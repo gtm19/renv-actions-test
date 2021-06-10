@@ -41,14 +41,14 @@ on:
     paths:
       - 'packages/**'  # << the subdirectory where your packages live goes here
 ```
-4. Add the package directories to `matrix.path`:
+4. Add the package directories to `matrix.pkgs`. The `label` will be used in a filename, so avoid spaces.
 ```yaml
 strategy:
       fail-fast: false
       matrix:
-        path:  # << list the individual directories where each package lives
-          - packages/app.one
-          - packages/app.two
+        pkgs:  # << list the individual directories where each package lives
+          - {label: app-one, dir: packages/app.one}
+          - {label: app-two, dir: packages/app.two}
         config:
           - {os: macOS-latest, r: 'release'}
 ```
@@ -61,9 +61,9 @@ Simply remove it from the `matrix.path`:
 strategy:
       fail-fast: false
       matrix:
-        path:  # << list the individual directories where each package lives
-        #   - packages/app.one (not checked any more)
-          - packages/app.two
+        pkgs:  # << list the individual directories where each package lives
+          # - {label: app-one, dir: packages/app.one} (commented out so not checked)
+          - {label: app-two, dir: packages/app.two}
         config:
           - {os: macOS-latest, r: 'release'}
 ```
