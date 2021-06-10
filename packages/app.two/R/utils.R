@@ -4,3 +4,9 @@
 clippy_says <- function(what) {
     cowsay::say(what = what, "clippy")  
 }
+
+#' A stupid function to return a random name using Charlatan
+#' 
+random_name <- function() {
+    charlatan::ch_name()
+}
