@@ -117,8 +117,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.renv_dir }}
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          key: ${{ runner.os }}-renv-${{ matrix.pkgs.label }}-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
+            ${{ runner.os }}-renv-${{ matrix.pkgs.label }}-${{ hashFiles('**/renv.lock') }}
+            ${{ runner.os }}-renv-${{ matrix.pkgs.label }}-
             ${{ runner.os }}-renv-
 
       - name: Restore R package cache (no renv)
@@ -128,8 +130,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ matrix.pkgs.label }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ matrix.pkgs.label }}-1-${{ hashFiles('.github/depends.Rds') }}
+            ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ matrix.pkgs.label }}-1-
+            ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
       - name: Restore R packages (renv)
         if: |
